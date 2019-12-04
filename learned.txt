@@ -1,0 +1,74 @@
+//	Scroll to top function using pure js
+ var arrowUp = document.querySelector(‘.btnArrowUp’);
+ arrowUp.addEventListener(‘click’, function() {
+	document.querySelector(‘header’).scrollIntoView({
+		behavior: ‘smooth’
+});
+ });
+
+//	Creating a 3 video slides using jquery that fadeIn and fadeOut 
+//	every 10 seconds
+function videoChange() {
+	/*$('video').each(function() {
+	    $(this).get(0).pause();*/
+	$(".video__01 video").get(0).currentTime = 0;
+	$(".video__01 video")
+		.get(0)
+		.play();
+	setTimeout(function() {
+		$(".video__01 video")
+			.get(0)
+			.pause();
+		$(".video__03").animate({ opacity: 1 }, 1000);
+		$(".video__01").animate({ opacity: 0 }, 1000);
+		$(".video__03 video").get(0).currentTime = 0;
+		$(".video__03 video")
+			.get(0)
+			.play();
+		setTimeout(function() {
+			$(".video__03 video")
+				.get(0)
+				.pause();
+			$(".video__02").animate({ opacity: 1 }, 1000);
+			$(".video__03").animate({ opacity: 0 }, 1000);
+			$(".video__02 video").get(0).currentTime = 30;
+			$(".video__02 video")
+				.get(0)
+				.play();
+			setTimeout(function() {
+				$(".video__02 video")
+					.get(0)
+					.pause();
+				$(".video__01").animate({ opacity: 1 }, 1000);
+				$(".video__02").animate({ opacity: 0 }, 1000);
+				videoChange();
+			}, 10000);
+		}, 10000);
+	}, 10000);
+	/*});*/
+}
+
+//	Using $(function () {}) - ensure function is called once all DOM 
+//	Elements of the page are ready to be used - jQuery
+  $(function () {
+     hideHeader();
+     smoothScroller();
+     sp_accordion();
+     viewport();
+     homeKvTxtAccordion();
+     navi_dropdown_menu();
+     // jsScroller();
+     querymodal();
+  });
+
+
+
+//  Set the background image 100% response to width and height - CSS
+  background-image: url(../assets/img/kv__bg_pc.jpg);
+  background-size: 100% 100%;
+ 
+//  Set the background image and a bg color to it using background - CSS
+  background: linear-gradient(1deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1) 20%), url(../img/background02.jpg);
+
+
+
